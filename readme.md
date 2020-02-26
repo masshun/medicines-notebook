@@ -16,5 +16,4 @@
 <li>php</li>
 <li>Laravel</li>
 <li>jQuery</li>
-
 </ul>
