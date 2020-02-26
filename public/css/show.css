@@ -1,0 +1,19 @@
+.medicine-main {
+    width: 70%;
+    padding-right:10%;
+}
+.medicine-image {
+   width:20em;
+
+}
+.medicine-image img {
+    max-width: 100%;
+}
+.btn-back {
+    width: 8em;
+    margin: auto;
+}
+
+.d-in{
+    display:inline;
+}
