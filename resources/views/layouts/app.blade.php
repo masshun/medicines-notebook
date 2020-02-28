@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark bg-primary shadow-sm">
+        <nav class="navbar navbar-expand-md navbar-dark shadow" style="background-color:#0099CC;">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="navbar-logo" src="{{ asset('images/medicine.png') }}">
@@ -90,7 +90,7 @@
             </div>
         </nav>
 
-        <main class="main">
+        <main class="main" style="background:#F8F8FF;">
         @if (session('flash_message'))
             <div class="flash_message bg-success text-center py-3 my-0 mb30">
                 {{ session('flash_message') }}
@@ -98,7 +98,7 @@
         @endif
             @yield('content')
         </main>
-        <footer class="footer p20 bg-primary">
+        <footer class="footer p20" style="background-color:#0099CC;">
             @yield('footer')
             <small>おくすり手帳 2020</small>
         </footer>

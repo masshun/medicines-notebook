@@ -10,9 +10,9 @@
             @foreach($medicines as $medicine)
             <div class="row-height">
                 <div class="col-mb-4">
-                    <div class="card mb50">
+                    <div class="card mb50" style="margin-left:10%; margin-right:10%;">
                         <div class="card-header"><h2 class="text-center mauto" style="font-weight:bold;">{{ $medicine->name }}</h2></div>
-                            <div class="card-body" style="font-size:1.5rem;">
+                            <div class="card-body" style="font-size:1.1rem;">
                                 @if($medicine->image)
                                     <div class="image-wrapper"><img src="/thumbnail/{{ $medicine->image }}"></div>
                                 @else
@@ -23,23 +23,23 @@
                                     @foreach(explode(',', $medicine->timezone) as $info)
                                         <li style="list-style:none;">
                                         @if($info == '朝')
-                                            <span class="badge badge-primary mr10 p10" style="font-size:1.3rem;">朝</span>
+                                            <span class="badge badge-primary mr10 p10" style="">朝</span>
                                         @endif
                                         @if($info == '昼')
-                                            <span class="badge badge-warning mr10 p10" style="font-size:1.3rem;">昼</span>
+                                            <span class="badge badge-warning mr10 p10" style="">昼</span>
                                         @endif
                                         @if($info == '夜')
-                                            <span class="badge badge-dark mr10 p10" style="font-size:1.3rem;">夜</span>
+                                            <span class="badge badge-dark mr10 p10" style="">夜</span>
                                         @endif
                                         @if($info == '食前')
-                                            <span class="badge badge-light mr10 p10" style="font-size:1.3rem;">食前</span>
+                                            <span class="badge badge-light mr10 p10" style="">食前</span>
                                         @endif
                                         @if($info == '食後')
-                                            <span class="badge badge-secondary mr10 p10" style="font-size:1.3rem;">食後</span>
+                                            <span class="badge badge-secondary mr10 p10" style="">食後</span>
                                         @endif
                                     @endforeach
                                     @else
-                                        <span class="badge badge-info mr10 p10" style="font-size:1.3rem;">指定なし</span>
+                                        <span class="badge badge-info mr10 p10" style="">指定なし</span>
                                         </li>
                                     @endif
                                 </ul>
@@ -65,7 +65,7 @@
                                     @endif
                                 </ul>
 
-                            <a href="{{ route('show', ['id' => $medicine->id ]) }}" class="btn btn-success" style="width:100%;">詳細</a>
+                            <a href="{{ route('show', ['id' => $medicine->id ]) }}" class="btn btn-success mt5" style="width:100%;">詳細</a>
                         </div>
                     </div>
                 </div>

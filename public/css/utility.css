@@ -99,6 +99,10 @@
     margin-left: 2% !important;
 }
 
+.mrl10 {
+    margin-right: 10% !important;
+    margin-left: 10% !important;
+}
 .mauto {
     margin: auto;
 }

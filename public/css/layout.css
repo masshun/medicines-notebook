@@ -10,7 +10,8 @@
     color: #fff;
 }
 .main {
-    background-image: url('../images/capsule3.png');
+    /*background-image: url('../images/capsule3.png');*/
+    
     background-size: 100px 100px;
     min-height: 85vh;
     padding: 30px 5%;

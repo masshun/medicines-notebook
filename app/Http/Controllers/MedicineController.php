@@ -38,7 +38,7 @@ class MedicineController extends Controller
 
         $resize_image = Image::make($image->getRealPath());
 
-        $resize_image->resize(300,300, function($constraint){
+        $resize_image->resize(320,320, function($constraint){
             $constraint->aspectRatio();
         })->save($destinationPath . '/' . $image_name);
         
