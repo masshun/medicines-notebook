@@ -26,7 +26,7 @@
 </head>
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-md navbar-dark shadow" style="background-color:#0099CC;">
+        <nav class="navbar navbar-expand-md navbar-dark shadow" style="background: linear-gradient(90deg, rgba(7,0,117,1) 0%, rgba(13,0,255,1) 31%, rgba(2,179,215,1) 100%);">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     <img class="navbar-logo" src="{{ asset('images/medicine.png') }}">
@@ -34,12 +34,8 @@
                 </a>
                 <form method="GET" action="{{ route('index') }}">
                 @csrf
-                @if($keyword = '')
-                    <input type="text" name="keyword" value="">
-                @else
-                    <input type="text" name="keyword" value="{{ $keyword }}">
-                @endif
-                    <input type="submit" value="おくすり検索">
+                    <input type="text" name="keyword" value="{{ $keyword }}" class="rounded-lg">
+                    <input type="submit" value="検索" class="rounded-lg">
                 </form>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -90,7 +86,7 @@
             </div>
         </nav>
 
-        <main class="main" style="background:#F8F8FF;">
+        <main class="main" style="background:#fff;">
         @if (session('flash_message'))
             <div class="flash_message bg-success text-center py-3 my-0 mb30">
                 {{ session('flash_message') }}
@@ -98,7 +94,7 @@
         @endif
             @yield('content')
         </main>
-        <footer class="footer p20" style="background-color:#0099CC;">
+        <footer class="footer p20" style="background: linear-gradient(90deg, rgba(7,0,117,1) 0%, rgba(13,0,255,1) 31%, rgba(2,179,215,1) 100%);">
             @yield('footer')
             <small>おくすり手帳 2020</small>
         </footer>

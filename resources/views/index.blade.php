@@ -37,6 +37,13 @@
                                         @if($info == '食後')
                                             <span class="badge badge-secondary mr10 p10" style="">食後</span>
                                         @endif
+                                        @if($info == '起床時')
+                                            <span class="badge badge-secondary mr10 p10" style="">起床時</span>
+                                        @endif
+                                        @if($info == '寝る前')
+                                            <span class="badge badge-secondary mr10 p10" style="">寝る時</span>
+                                        @endif
+
                                     @endforeach
                                     @else
                                         <span class="badge badge-info mr10 p10" style="">指定なし</span>
