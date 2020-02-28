@@ -8,4 +8,3 @@
 
 @section('footer')
 @endsection
-
