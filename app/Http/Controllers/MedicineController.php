@@ -21,6 +21,16 @@ class MedicineController extends Controller
         return view('index', ['medicines' => $medicines, 'users' => $users, 'keyword' => $keyword]);
     }
 
+    public function card(Request $request)
+    {
+
+        $keyword = $request->keyword;
+        $medicines = Medicine::findName($keyword)->paginate(6);
+        $users = Auth::user();
+
+        return view('card', ['medicines' => $medicines, 'users' => $users, 'keyword' => $keyword]);
+    }
+
     public function create()
     {
         return view('create');
@@ -46,19 +56,7 @@ class MedicineController extends Controller
 
        $image->move($destinationPath, $image_name);
 
-        /*$input['imagename'] = time().'.'.$image->extension();
-     
-        $destinationPath = public_path('/thumbnail');
-
-        $img = Image::make($image->path());
-        $img->resize(300, 300, function ($constraint) {
-            $constraint->aspectRatio();
-        })->save($destinationPath.'/'.$input['imagename']);
-   
-        $destinationPath = public_path('/images');
-        $image->move($destinationPath, $input['imagename']);*/
-
-        $data = [
+       $data = [
         'user_id' => \Auth::id(), 'name' => $post['name'], 
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
@@ -80,6 +78,7 @@ class MedicineController extends Controller
             ];
         $data = array_merge($data, $dosing);
     }
+        unset($data['_token']);
         Medicine::insert($data);
         
         return redirect('/')
@@ -104,27 +103,42 @@ class MedicineController extends Controller
        
         $post = $request->all();
 
-    if($request->hasFile('image')){
-        $request->file('image')->store('/public/images');
-
-        $data = [
-        'user_id' => \Auth::id(), 'name' => $post['name'], 
-        'quantity' => $post['quantity'], 'term' => $post['term'],
-        'hospital' => $post['hospital'], 'body' => $post['body'],
-        'image' => $request->file('image')->hashName(),
-        ];
-    }else{
-        $data = [
-        'user_id' => \Auth::id(), 'name' => $post['name'], 
-        'quantity' => $post['quantity'], 'term' => $post['term'],
-        'hospital' => $post['hospital'], 'body' => $post['body'],
-        ];
-    }
-        $arrayToString = implode(',', $post['timezone']);
-        $dosing = [
-            'timezone' => $arrayToString
+        if($request->hasFile('image')){
+            $image = $request->file('image');
+            $image_name = time() . '.' . $image->
+                getClientOriginalExtension();
+            $destinationPath = public_path('/thumbnail');
+    
+            $resize_image = Image::make($image->getRealPath());
+    
+            $resize_image->resize(320,320, function($constraint){
+                $constraint->aspectRatio();
+            })->save($destinationPath . '/' . $image_name);
+            
+           $destinationPath = public_path('/images');
+    
+           $image->move($destinationPath, $image_name);
+    
+           $data = [
+            'user_id' => \Auth::id(), 'name' => $post['name'], 
+            'quantity' => $post['quantity'], 'term' => $post['term'],
+            'hospital' => $post['hospital'], 'body' => $post['body'],
+            'image' => $image_name,
             ];
-        $data = array_merge($data, $dosing);
+        }else{
+        $data = [
+        'user_id' => \Auth::id(), 'name' => $post['name'], 
+        'quantity' => $post['quantity'], 'term' => $post['term'],
+        'hospital' => $post['hospital'], 'body' => $post['body'],
+        ];
+        }
+        if(array_key_exists('timezone', $post)){
+            $arrayToString = implode(',', $post['timezone']);
+            $dosing = [
+                'timezone' => $arrayToString
+                ];
+            $data = array_merge($data, $dosing);
+        }
         
         unset($data['_token']);
         $medicine->fill($data)->save();

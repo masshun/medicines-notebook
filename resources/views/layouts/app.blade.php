@@ -16,7 +16,8 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" href="/icomoon/style.css">
+    
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/utility.css') }}" rel="stylesheet">
@@ -29,13 +30,13 @@
         <nav class="navbar navbar-expand-md navbar-dark shadow" style="background: linear-gradient(90deg, rgba(7,0,117,1) 0%, rgba(13,0,255,1) 31%, rgba(2,179,215,1) 100%);">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class="navbar-logo" src="{{ asset('images/medicine.png') }}">
+                    <img class="navbar-logo" src="{{ asset('images/medicine1.png') }}">
                     <span style="color:#fff">{{ config('app.name', 'Laravel') }}<span>
                 </a>
                 <form method="GET" action="{{ route('index') }}">
-                @csrf
-                    <input type="text" name="keyword" value="{{ $keyword }}" class="rounded-lg">
-                    <input type="submit" value="検索" class="rounded-lg">
+                @csrf               
+                    <input type="text" name="keyword" value="{{ old('keyword') }}" class="rounded-lg border-info">
+                    <input type="submit" value="検索" class="rounded-lg border-info">
                 </form>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -63,6 +64,9 @@
                             <li class="nav-item">
                                 <a href="{{ route('create') }}" class='nav-link'>お薬を登録する</a>
                             </li>
+                            <li class="nav-item">
+                                <a href="{{ route('card') }}" class='nav-link'>横向きカード</a>
+                            </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }} <span class="caret"></span>
@@ -72,7 +76,7 @@
                                     <a class="dropdown-item" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
+                                        ログアウト
                                     </a>
 
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

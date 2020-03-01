@@ -58,9 +58,9 @@
             </section>
             <aside>
             @if(!empty($medicine->image))
-            <img class="medicine-image" src="{{ asset('storage/images/'.$medicine->image) }}">
+            <img class="medicine-image" src="/thumbnail/{{ $medicine->image }}">
             @else
-            <img class="medicine-image" src="{{ asset('images/medicine.png') }}">
+            <img class="medicine-image" src="{{ asset('images/medicine1.png') }}">
             @endif
             </aside>
         </div>

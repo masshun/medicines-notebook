@@ -37,6 +37,8 @@
                   <label class="ml20"><input type='checkbox' name='timezone[]' value='夜'><span class="pl10">夜</span></label>
                   <label class="ml20"><input type='checkbox' name='timezone[]' value='食前'><span class="pl10">食前</span></label>
                   <label class="ml20"><input type='checkbox' name='timezone[]' value='食後'><span class="pl10">食後</span></label>
+                  <label class="ml20"><input type='checkbox' name='timezone[]' value='起床時'><span class="pl10">起床時</span></label>
+                  <label class="ml20"><input type='checkbox' name='timezone[]' value='就寝前'><span class="pl10">就寝前</span></label>
                 </div>
               </div>
 

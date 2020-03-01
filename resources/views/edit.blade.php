@@ -65,6 +65,7 @@
               </div>
               <input type="hidden" name="_method" value="patch">
               <input type='submit' class='btn btn-primary mt20' value='お薬を更新'>
+              <!--<button><a href="#">更新せず戻る</a></button>-->
             </div>
         </div>
       </form>

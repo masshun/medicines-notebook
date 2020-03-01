@@ -6,17 +6,17 @@
 @section('content')
 @auth
     <div class="container">
-        <div class="row justify-content-center container">
+        <div class="row justify-content-center">
             @foreach($medicines as $medicine)
             <div class="row-height">
                 <div class="col-mb-4">
-                    <div class="card mb50" style="margin-left:10%; margin-right:10%;">
+                    <div class="card mb50 shadow" style="margin-left:5%; margin-right:5%;">
                         <div class="card-header"><h2 class="text-center mauto" style="font-weight:bold;">{{ $medicine->name }}</h2></div>
                             <div class="card-body" style="font-size:1.1rem;">
                                 @if($medicine->image)
                                     <div class="image-wrapper"><img src="/thumbnail/{{ $medicine->image }}"></div>
                                 @else
-                                    <div class="image-wrapper"><img class="card-img" src="{{ asset('../images/medicine.png') }}"></div>
+                                    <div class="image-wrapper"><img class="card-img" src="{{ asset('../images/medicine1.png') }}"></div>
                                 @endif
                                 <ul class="list-group list-group-flush" style="flex-direction:row;"> 
                                     @if ($medicine->timezone != "")
@@ -40,8 +40,8 @@
                                         @if($info == '起床時')
                                             <span class="badge badge-secondary mr10 p10" style="">起床時</span>
                                         @endif
-                                        @if($info == '寝る前')
-                                            <span class="badge badge-secondary mr10 p10" style="">寝る時</span>
+                                        @if($info == '就寝前')
+                                            <span class="badge badge-secondary mr10 p10" style="">就寝前</span>
                                         @endif
 
                                     @endforeach
@@ -72,7 +72,7 @@
                                     @endif
                                 </ul>
 
-                            <a href="{{ route('show', ['id' => $medicine->id ]) }}" class="btn btn-success mt5" style="width:100%;">詳細</a>
+                            <a href="{{ route('show', ['id' => $medicine->id ]) }}" class="btn mt5" style="width:100%; background-color:#09beff; color:#fff;">詳細</a>
                         </div>
                     </div>
                 </div>
