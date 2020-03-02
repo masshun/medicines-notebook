@@ -1,89 +1,75 @@
 @extends('layouts.app')
-
 @section('css')
-@endsection
+<style>
+.card-horizontal {
+    display: flex;
+    flex: 1 1 auto;
+}
 
+.img-square-wrapper{
+    width:30%;
+}
+
+.linkbox a:hover{/* マウスオーバー時に色変更*/
+    opacity: 0.1;
+    background-color: #85e6ff;
+    box-shadow:8px 8px 9px rgba(0,0,0,0.5);
+}
+
+.linkbox {
+    position: relative;
+}
+.linkbox a {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height:100%;
+    width: 100%;
+}
+.card-blade-img{
+
+}
+</style>
+@endsection
 @section('content')
 @auth
-    <div class="container">
-        <div class="row justify-content-center">
-            @foreach($medicines as $medicine)
-            <div class="row-height">
-                <div class="col-mb-4">
-                    <div class="card mb50 shadow" style="margin-left:5%; margin-right:5%;">
-                        <div class="card-header"><h2 class="text-center mauto" style="font-weight:bold;">{{ $medicine->name }}</h2></div>
-                            <div class="card-body" style="font-size:1.1rem;">
-                                @if($medicine->image)
-                                    <div class="image-wrapper"><img src="/thumbnail/{{ $medicine->image }}"></div>
-                                @else
-                                    <div class="image-wrapper"><img class="card-img" src="{{ asset('../images/medicine1.png') }}"></div>
-                                @endif
-                                <ul class="list-group list-group-flush" style="flex-direction:row;"> 
-                                    @if ($medicine->timezone != "")
-                                    @foreach(explode(',', $medicine->timezone) as $info)
-                                        <li style="list-style:none;">
-                                        @if($info == '朝')
-                                            <span class="badge badge-primary mr10 p10" style="">朝</span>
-                                        @endif
-                                        @if($info == '昼')
-                                            <span class="badge badge-warning mr10 p10" style="">昼</span>
-                                        @endif
-                                        @if($info == '夜')
-                                            <span class="badge badge-dark mr10 p10" style="">夜</span>
-                                        @endif
-                                        @if($info == '食前')
-                                            <span class="badge badge-light mr10 p10" style="">食前</span>
-                                        @endif
-                                        @if($info == '食後')
-                                            <span class="badge badge-secondary mr10 p10" style="">食後</span>
-                                        @endif
-                                        @if($info == '起床時')
-                                            <span class="badge badge-secondary mr10 p10" style="">起床時</span>
-                                        @endif
-                                        @if($info == '就寝前')
-                                            <span class="badge badge-secondary mr10 p10" style="">就寝前</span>
-                                        @endif
 
-                                    @endforeach
-                                    @else
-                                        <span class="badge badge-info mr10 p10" style="">指定なし</span>
-                                        </li>
-                                    @endif
-                                </ul>
-
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item" style="padding-left:0px;">1回に服用する量：{{ $medicine->quantity }}</li>
-                                    <li class="list-group-item" style="padding-left:0px;">服用期間：{{ $medicine->term }}</li>
-                                    @if($medicine->hospital != '')
-                                        <li class="list-group-item" style="padding-left:0px;">{{ $medicine->hospital }}</li>
-                                    @else
-                                        <li class="list-group-item" style="padding-left:0px;">病院の指定なし</li>
-                                    @endif
-
-                                    @if(empty($medicine->body))
-                                        <li class="list-group-item" style="padding-left:0px;">特になし</li>
-                                    @else
-                                        <li class="list-group-item" style="padding-left:0px;"> 
-                                            @php 
-                                                $medicine->body = Str::limit($medicine->body, 17,'(...)');
-                                            @endphp 
-                                            {{ $medicine->body }}
-                                        </li>
-                                    @endif
-                                </ul>
-
-                            <a href="{{ route('show', ['id' => $medicine->id ]) }}" class="btn mt5" style="width:100%; background-color:#09beff; color:#fff;">詳細</a>
-                        </div>
+<div class="container-fluid">
+    <div class="row">
+    @foreach($medicines as $medicine)
+        <div class="col-xs-12 col-md-6 mt-3">
+            <div class="card border-primary linkbox">
+            <a href="{{ route('show', ['id' => $medicine->id ]) }}"></a>
+                <div class="card-horizontal">
+                    <div class="img-square-wrapper" style="position:relative;">
+                        <img class="card-blade-img" src="{{ asset('../images/meme1.png') }}" alt="Card image cap" style="">
+                    </div>
+                    <div class="card-body" style="">
+                        <h1 class="card-title">{{ $medicine->name }}<span>({{ $medicine->quantity }})</span></h1>
+                        <p class="badge p10 m-0" style="background-color:#02c2f8; color:white; font-size:20px;">
+                        
+                        {{ $medicine->timing }}
+                        
+                        (@foreach(explode(',', $medicine->timezone) as $info)
+                        {{ $info }}
+                        @endforeach)
+                        
+                        </p>
                     </div>
                 </div>
+                <div class="card-footer">
+                    <small class="text-muted">特記事項：{{ $medicine->body }}</small>
+                </div>
             </div>
-            @endforeach
         </div>
-        <div class="row justify-content-center">
-            {{ $medicines->appends(request()->input())->links() }}
-        </div>
+    @endforeach
     </div>
-@endsection
+    <div class="row justify-content-center">
+            {{ $medicines->appends(request()->input())->links() }}
+    </div>
+</div>
+
 @endauth
+@endsection
 @section('footer')
 @endsection

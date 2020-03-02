@@ -26,7 +26,7 @@ class ValidateTestRequest extends FormRequest
     {
         return [
             'name' => 'bail|required|max:255',
-            'image' => 'bail|image|dimensions:max_width=400,max_height=400',
+            'image' => 'bail|image|max:1000',
             'term' => 'max:255',
             'quantity' => 'max:255',
             'body' => 'max:255',

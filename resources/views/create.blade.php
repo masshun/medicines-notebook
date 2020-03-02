@@ -10,7 +10,7 @@
             <div class="card-body">
 
               <div class="form-group">
-                <label>お薬の名前<span style="color:#F00;">　※必須項目</span></label>
+                <label>お薬の名前<span style="color:red; font-size:0.7em;">　※必須項目</span></label>
                 <input type='text' class='form-control' name='name' placeholder='薬品名を入力'>
               </div>
 
@@ -30,13 +30,20 @@
               </div>
 
               <div class="form-group">
-                <label>服用するタイミング<span style="color:#F00;"></span></label>
-                <div  style="font-size:1.1rem;">
-                  <label class=""><input type='checkbox' name='timezone[]' value='朝'><span class="pl10">朝</span></label>
+                <label>服用するタイミング</label>
+                <div  style="font-size:1.1em;">
+                  <label class="ml20"><input type='radio' name='timing' value='食前'><span class="pl10">食前</span></label>
+                  <label class="ml20"><input type='radio' name='timing' value='食後'><span class="pl10">食後</span></label>
+                  <label class="ml20"><input type='radio' name='timing' value='適宜'><span class="pl10">適宜</span></label>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <label>服用する時間帯</label>
+                <div  style="font-size:1.1em;">
+                  <label class="ml20"><input type='checkbox' name='timezone[]' value='朝'><span class="pl10">朝</span></label>
                   <label class="ml20"><input type='checkbox' name='timezone[]' value='昼'><span class="pl10">昼</span></label>
                   <label class="ml20"><input type='checkbox' name='timezone[]' value='夜'><span class="pl10">夜</span></label>
-                  <label class="ml20"><input type='checkbox' name='timezone[]' value='食前'><span class="pl10">食前</span></label>
-                  <label class="ml20"><input type='checkbox' name='timezone[]' value='食後'><span class="pl10">食後</span></label>
                   <label class="ml20"><input type='checkbox' name='timezone[]' value='起床時'><span class="pl10">起床時</span></label>
                   <label class="ml20"><input type='checkbox' name='timezone[]' value='就寝前'><span class="pl10">就寝前</span></label>
                 </div>
@@ -48,7 +55,7 @@
               </div>
 
               <div class="form-group">
-                <label for="file1">お薬の写真</label>
+                <label for="file1">お薬の写真　<span style="color:red; font-size:0.7em;">※サイズは1000×1000まで。画像ファイルのみ対応可</span></label>
                 <input type="file" id="file1" name='image' class="form-control-file">
               </div>
 

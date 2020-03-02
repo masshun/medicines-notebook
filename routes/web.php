@@ -19,8 +19,6 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::group(['middleware' =>'auth'], function ()
 {
-    Route::get('/card', 'MedicineController@card')->name('card');
-
     Route::get('/create', 'MedicineController@create')->name('create');
     Route::post('/create/store', 'MedicineController@store')->name('store');
     Route::get('/show/{id}', 'MedicineController@show')->name('show');

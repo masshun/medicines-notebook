@@ -21,16 +21,6 @@ class MedicineController extends Controller
         return view('index', ['medicines' => $medicines, 'users' => $users, 'keyword' => $keyword]);
     }
 
-    public function card(Request $request)
-    {
-
-        $keyword = $request->keyword;
-        $medicines = Medicine::findName($keyword)->paginate(6);
-        $users = Auth::user();
-
-        return view('card', ['medicines' => $medicines, 'users' => $users, 'keyword' => $keyword]);
-    }
-
     public function create()
     {
         return view('create');
@@ -48,9 +38,7 @@ class MedicineController extends Controller
 
         $resize_image = Image::make($image->getRealPath());
 
-        $resize_image->resize(320,320, function($constraint){
-            $constraint->aspectRatio();
-        })->save($destinationPath . '/' . $image_name);
+        $resize_image->resize(320,320)->save($destinationPath . '/' . $image_name);
         
        $destinationPath = public_path('/images');
 
@@ -60,7 +48,7 @@ class MedicineController extends Controller
         'user_id' => \Auth::id(), 'name' => $post['name'], 
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
-        'image' => $image_name,
+        'image' => $image_name,'timing' => $post['timing'],
         ];
 
     }else{
@@ -68,6 +56,7 @@ class MedicineController extends Controller
         'user_id' => \Auth::id(), 'name' => $post['name'], 
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
+        'timing' => $post['timing'],
         ];
     }
 
@@ -111,9 +100,7 @@ class MedicineController extends Controller
     
             $resize_image = Image::make($image->getRealPath());
     
-            $resize_image->resize(320,320, function($constraint){
-                $constraint->aspectRatio();
-            })->save($destinationPath . '/' . $image_name);
+            $resize_image->resize(320,320)->save($destinationPath . '/' . $image_name);
             
            $destinationPath = public_path('/images');
     
@@ -123,13 +110,14 @@ class MedicineController extends Controller
             'user_id' => \Auth::id(), 'name' => $post['name'], 
             'quantity' => $post['quantity'], 'term' => $post['term'],
             'hospital' => $post['hospital'], 'body' => $post['body'],
-            'image' => $image_name,
+            'image' => $image_name, 'timing' => $post['timing'],
             ];
         }else{
         $data = [
         'user_id' => \Auth::id(), 'name' => $post['name'], 
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
+        'timing' => $post['timing'],
         ];
         }
         if(array_key_exists('timezone', $post)){

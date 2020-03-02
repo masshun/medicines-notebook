@@ -60,7 +60,7 @@
             @if(!empty($medicine->image))
             <img class="medicine-image" src="/thumbnail/{{ $medicine->image }}">
             @else
-            <img class="medicine-image" src="{{ asset('images/medicine1.png') }}">
+            <img class="medicine-image" src="{{ asset('images/meme1.png') }}">
             @endif
             </aside>
         </div>

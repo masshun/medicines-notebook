@@ -16,12 +16,12 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-    <link rel="stylesheet" href="/icomoon/style.css">
-    
+
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/utility.css') }}" rel="stylesheet">
     <link href="{{ asset('css/layout.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/icomoon/style.css') }}" rel="stylesheet">
 
     @yield('css')
 </head>
@@ -30,7 +30,7 @@
         <nav class="navbar navbar-expand-md navbar-dark shadow" style="background: linear-gradient(90deg, rgba(7,0,117,1) 0%, rgba(13,0,255,1) 31%, rgba(2,179,215,1) 100%);">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    <img class="navbar-logo" src="{{ asset('images/medicine1.png') }}">
+                    <img class="navbar-logo" src="{{ asset('images/capsule1.png') }}" style="padding:2px 0 2px 2px;">
                     <span style="color:#fff">{{ config('app.name', 'Laravel') }}<span>
                 </a>
                 <form method="GET" action="{{ route('index') }}">
@@ -65,7 +65,7 @@
                                 <a href="{{ route('create') }}" class='nav-link'>お薬を登録する</a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('card') }}" class='nav-link'>横向きカード</a>
+                                <a href="{{ url('/') }}" class='nav-link'>横向きカード</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -100,7 +100,7 @@
         </main>
         <footer class="footer p20" style="background: linear-gradient(90deg, rgba(7,0,117,1) 0%, rgba(13,0,255,1) 31%, rgba(2,179,215,1) 100%);">
             @yield('footer')
-            <small>おくすり手帳 2020</small>
+            <a href="{{ url('/') }}" style="text-decoration: none;"><small style="color:white;">おくすり手帳 2020</small></a>
         </footer>
     </div>
 </body>
