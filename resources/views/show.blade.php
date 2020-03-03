@@ -8,52 +8,44 @@
 <div class="container">
     <div class="card">
         <div class="card-header">
-            <h2 class="mauto text-center">おくすりの詳細</h2>
+            <h2 class="mauto text-center" style="color: #0b03a6;">おくすりの詳細</h2>
         </div>
         <div class="card-body d-flex">
             <section class="medicine-main">
                 <div>
-                <h2 class="h2">お薬の名前</h2>
-                <p class="h2 mb20">{{ $medicine->name }}</p>
+                <h2 class="h2 text-secondary">お薬の名前</h2>
+                <p class="h2 mb20" style="color: #0b03a6;">{{ $medicine->name }}</p>
                 </div>
                 
-                <h2 class="h2 border-top pt20">服用するタイミング</h2>
+                <h2 class="h2 border-top pt20 text-secondary">服用するタイミング</h2>
                 <ul class="list-group list-group-flush" style="flex-direction:row;"> 
-                            @if ($medicine->timezone != "")
-                            @foreach(explode(',', $medicine->timezone) as $info)
-                                <li style="list-style:none;" class="mb20">
-                                @if($info == '朝')
-                                    <span class="badge badge-primary mr10 p10" style="font-size:1.4rem;">朝</span>
-                                @endif
-                                @if($info == '昼')
-                                    <span class="badge badge-warning mr10 p10" style="font-size:1.4rem;">昼</span>
-                                @endif
-                                @if($info == '夜')
-                                    <span class="badge badge-dark mr10 p10" style="font-size:1.4rem;">夜</span>
-                                @endif
-                                @if($info == '食前')
-                                    <span class="badge badge-light mr10 p10" style="font-size:1.4rem; white-space:normal;">食前</span>
-                                @endif
-                                @if($info == '食後')
-                                    <span class="badge badge-secondary mr10 p10" style="font-size:1.4rem; white-space:normal;">食後</span>
-                                @endif
-                                
-                                </li>                           
-                            @endforeach
-                            @endif
+                    
+                        <li style="list-style:none;" class="mb20">
+                            <span class="badge p10" style="font-size:1.4rem; background-color:#02c2f8; color:white;">
+                            {{ $medicine->timing }}                        
+                        (
+                        @if($medicine->timezone != '')
+                        {{ $medicine->timezone }}
+                        @else
+                        指定なし
+                        @endif
+                        )
+                            </span>                                
+                        </li>                           
+                     
                 </ul>
                             
-                <h2 class="h2 border-top pt20">処方期間</h2> 
-                <p class="h2 mb20">{{ $medicine->term }}</p>
+                <h2 class="h2 border-top pt20 text-secondary">処方期間</h2> 
+                <p class="h2 mb20" style="color: #0b03a6;">{{ $medicine->term }}</p>
 
-                <h2 class="h2 border-top pt20">1回あたり服用する量</h2>
-                <p class="h2 mb20">{{ $medicine->quantity }}</p>
+                <h2 class="h2 border-top pt20 text-secondary">1回あたり服用する量</h2>
+                <p class="h2 mb20" style="color: #0b03a6;">{{ $medicine->quantity }}</p>
 
-                <h2 class="h2 border-top pt20">特記事項</h2>
-                @if(empty($medicine->body))
-                <p class="h2 pb20">特になし</p>
+                <h2 class="h2 border-top pt20 text-secondary">特記事項</h2>
+                @if($medicine->body)
+                <p class="h2 pb20" style="color: #0b03a6;">{{ $medicine->body }}</p>
                 @else
-                <p class="h2 pb20">{{ $medicine->body }}</p>
+                <p class="h2 pb20" style="color: #0b03a6;">特になし</p>
                 @endif
             </section>
             <aside>

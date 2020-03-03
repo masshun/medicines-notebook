@@ -29,6 +29,32 @@
 .card-blade-img{
 
 }
+.card-body {
+    padding-bottom: 10px;
+}
+
+.card-body p {
+    font-size: 30px;
+}
+
+.card-body h1 {
+    padding-top: 5%;
+}
+
+
+@media(max-width: 768px){
+    .card-body h1 {
+        font-size: 20px;
+        margin-bottom: 10px;
+
+    }
+
+    .card-body p {
+        font-size: 0.8em;
+    }
+
+}
+
 </style>
 @endsection
 @section('content')
@@ -41,18 +67,26 @@
             <div class="card border-primary linkbox">
             <a href="{{ route('show', ['id' => $medicine->id ]) }}"></a>
                 <div class="card-horizontal">
-                    <div class="img-square-wrapper" style="position:relative;">
-                        <img class="card-blade-img" src="{{ asset('../images/meme1.png') }}" alt="Card image cap" style="">
+                    <div class="img-square-wrapper">
+                    @if($medicine->image)
+                        <img class="card-blade-img" src="/thumbnail/{{ $medicine->image }}" alt="投稿された画像">
+                    @else
+                        <img class="card-blade-img" src="{{ asset('../images/meme1.png') }}" alt="デフォルト画像">
+                    @endif
                     </div>
-                    <div class="card-body" style="">
-                        <h1 class="card-title">{{ $medicine->name }}<span>({{ $medicine->quantity }})</span></h1>
-                        <p class="badge p10 m-0" style="background-color:#02c2f8; color:white; font-size:20px;">
+                    <div class="card-body">
+                        <h1 class="card-title" style="color: #0b03a6;">{{ $medicine->name }}<span class="text-secondary" style="font-size: 0.8em;"> ({{ $medicine->quantity }})</span></h1>
+                        <p class="badge p10 m-0" style="background-color:#02c2f8; color:white;">
                         
                         {{ $medicine->timing }}
                         
-                        (@foreach(explode(',', $medicine->timezone) as $info)
-                        {{ $info }}
-                        @endforeach)
+                        (
+                        @if($medicine->timezone != '')
+                        {{ $medicine->timezone }}
+                        @else
+                        指定なし
+                        @endif
+                        )
                         
                         </p>
                     </div>
