@@ -13,11 +13,11 @@
         <div class="card-body d-flex">
             <section class="medicine-main">
                 <div>
-                <h2 class="h2 text-secondary">お薬の名前</h2>
-                <p class="h2 mb20" style="color: #0b03a6;">{{ $medicine->name }}</p>
+                <h3 class="text-secondary">お薬の名前</h3>
+                <h2 class="mb20" style="color: #0b03a6;">{{ $medicine->name }}</h2>
                 </div>
                 
-                <h2 class="h2 border-top pt20 text-secondary">服用するタイミング</h2>
+                <h3 class="border-top pt20 text-secondary">服用するタイミング</h3>
                 <ul class="list-group list-group-flush" style="flex-direction:row;"> 
                     
                         <li style="list-style:none;" class="mb20">
@@ -35,17 +35,17 @@
                      
                 </ul>
                             
-                <h2 class="h2 border-top pt20 text-secondary">処方期間</h2> 
-                <p class="h2 mb20" style="color: #0b03a6;">{{ $medicine->term }}</p>
+                <h3 class="border-top pt20 text-secondary">処方期間</h3> 
+                <h2 class="mb20" style="color: #0b03a6;">{{ $medicine->term }}</h2>
 
-                <h2 class="h2 border-top pt20 text-secondary">1回あたり服用する量</h2>
-                <p class="h2 mb20" style="color: #0b03a6;">{{ $medicine->quantity }}</p>
+                <h3 class="border-top pt20 text-secondary">1回あたり服用する量</h3>
+                <h2 class="mb20" style="color: #0b03a6;">{{ $medicine->quantity }}</h2>
 
-                <h2 class="h2 border-top pt20 text-secondary">特記事項</h2>
+                <h3 class="border-top pt20 text-secondary">特記事項</h3>
                 @if($medicine->body)
-                <p class="h2 pb20" style="color: #0b03a6;">{{ $medicine->body }}</p>
+                <h2 class="pb20" style="color: #0b03a6;">{{ $medicine->body }}</h2>
                 @else
-                <p class="h2 pb20" style="color: #0b03a6;">特になし</p>
+                <h2 class="pb20" style="color: #0b03a6;">特になし</h2>
                 @endif
             </section>
             <aside>
