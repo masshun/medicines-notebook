@@ -1,6 +1,16 @@
 @extends('layouts.app')
 
 @section('content')
+@if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+  @endif
+
 <div class="row justify-content-center container">
     <div class="col-md-10">
       <form method='POST' action="{{ route('store') }}" enctype="multipart/form-data">
@@ -34,7 +44,7 @@
                 <div  style="font-size:1.1em;">
                   <label class="ml20"><input type='radio' name='timing' value='食前'><span class="pl10">食前</span></label>
                   <label class="ml20"><input type='radio' name='timing' value='食後'><span class="pl10">食後</span></label>
-                  <label class="ml20"><input type='radio' name='timing' value='適宜'><span class="pl10">適宜</span></label>
+                  <label class="ml20"><input type='radio' name='timing' value='適宜'  {{ old('timing','適宜') == '適宜' ? 'checked' : '' }}><span class="pl10">適宜</span></label>
                 </div>
               </div>
 
@@ -60,6 +70,7 @@
               </div>
 
               <input type='submit' class='btn btn-primary' value='お薬を登録'>
+              <a href="{{ url('/') }}" class="btn btn-secondary ml10">戻る</a>
             </div>
         </div>
       </form>

@@ -41,20 +41,24 @@
               <div class="form-group">
                 <label>服用するタイミング</label>
                 <div  style="font-size:1.1em;">
-                  <label class="ml20"><input type='radio' name='timing' value='食前'><span class="pl10">食前</span></label>
-                  <label class="ml20"><input type='radio' name='timing' value='食後'><span class="pl10">食後</span></label>
-                  <label class="ml20"><input type='radio' name='timing' value='適宜'><span class="pl10">適宜</span></label>
+                  <label class="ml20"><input type='radio' name='timing' value='食前' {{ old('timing', $medicine->timing) == '食前' ? 'checked' : ''}}><span class="pl10">食前</span></label>
+                  <label class="ml20"><input type='radio' name='timing' value='食後' {{ old('timing', $medicine->timing) == '食後' ? 'checked' : ''}}><span class="pl10">食後</span></label>
+                  <label class="ml20"><input type='radio' name='timing' value='適宜' {{ old('timing', $medicine->timing) == '適宜' ? 'checked' : ''}}><span class="pl10">適宜</span></label>
                 </div>
               </div>
 
               <div class="form-group">
                 <label>服用する時間帯</label>
                 <div  style="font-size:1.1em;">
-                  <label class="ml20"><input type='checkbox' name='timezone[]' value='朝' {{ is_array(old("timezone")) && in_array("朝", old("timezone"), true)? 'checked="checked"' : '' }}><span class="pl10">朝</span></label>
-                  <label class="ml20"><input type='checkbox' name='timezone[]' value='昼' {{ is_array(old("timezone")) && in_array("昼", old("timezone"), true)? 'checked="checked"' : '' }}><span class="pl10">昼</span></label>
-                  <label class="ml20"><input type='checkbox' name='timezone[]' value='夜' {{ is_array(old("timezone")) && in_array("夜", old("timezone"), true)? 'checked="checked"' : '' }}><span class="pl10">夜</span></label>
-                  <label class="ml20"><input type='checkbox' name='timezone[]' value='起床時' {{ is_array(old("timezone")) && in_array("起床時", old("timezone"), true)? 'checked="checked"' : '' }}><span class="pl10">起床時</span></label>
-                  <label class="ml20"><input type='checkbox' name='timezone[]' value='就寝前' {{ is_array(old("timezone")) && in_array("就寝前", old("timezone"), true)? 'checked="checked"' : '' }}><span class="pl10">就寝前</span></label>
+                
+                @php
+                $info = explode(',', $medicine->timezone);
+                @endphp
+                  <label class="ml20"><input type='checkbox' name='timezone[]' value='朝' @if(is_array(old('timezone', $info)) && in_array("朝", old('timezone', $info ))) checked @endif><span class="pl10">朝</span></label>
+                  <label class="ml20"><input type='checkbox' name='timezone[]' value='昼' @if(is_array(old('timezone', $info)) && in_array("昼", old('timezone', $info))) checked @endif><span class="pl10">昼</span></label>
+                  <label class="ml20"><input type='checkbox' name='timezone[]' value='夜' @if(is_array(old('timezone', $info)) && in_array("夜", old('timezone', $info))) checked @endif><span class="pl10">夜</span></label>
+                  <label class="ml20"><input type='checkbox' name='timezone[]' value='起床時' @if(is_array(old('timezone', $info)) && in_array("起床時", old('timezone', $info))) checked @endif><span class="pl10">起床時</span></label>
+                  <label class="ml20"><input type='checkbox' name='timezone[]' value='就寝前' @if(is_array(old('timezone', $info)) && in_array("就寝前", old('timezone', $info))) checked @endif><span class="pl10">就寝前</span></label>
                 </div>
               </div>
 
@@ -64,7 +68,7 @@
               </div>
 
               <div class="form-group">
-                <label for="file1">お薬の写真</label>
+                <label for="file1">お薬の写真　<span style="color:red; font-size:0.7em;">※サイズは1000×1000まで。画像ファイルのみ対応可</span></label>
                 <input type="file" id="file1" name='image' class="form-control-file">
               </div>
 
