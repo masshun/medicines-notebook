@@ -26,7 +26,9 @@
     @yield('css')
 </head>
 <body>
+
     <div id="app">
+    
         <nav class="navbar navbar-expand-md navbar-dark shadow" style="background: linear-gradient(90deg, rgba(7,0,117,1) 0%, rgba(13,0,255,1) 31%, rgba(2,179,215,1) 100%);">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -50,6 +52,9 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('home') }}">ホーム画面（仮）</a>
+                        </li>
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">ログイン</a>
@@ -84,8 +89,8 @@
                     </ul>
                 </div>
             </div>
+            
         </nav>
-
         <main class="main" style="background:#fff;">
         @if (session('flash_message'))
             <div class="flash_message bg-success text-center py-3 my-0 mb30">

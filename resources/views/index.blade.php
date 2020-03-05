@@ -8,6 +8,7 @@
 
 .img-square-wrapper{
     width:30%;
+    height:100%;
 }
 
 .linkbox a:hover{/* マウスオーバー時に色変更*/
@@ -34,23 +35,47 @@
 }
 
 .card-body p {
-    font-size: 30px;
+    font-size: 0.6em;
 }
 
-.card-body h1 {
-    padding-top: 5%;
+.card-body h3{
+   
 }
 
+@media(max-width: 1376px){
+    .card-body h3{
+        font-size: 25px;
+        margin-bottom: 10px;
 
-@media(max-width: 768px){
-    .card-body h1 {
+    }
+
+    .card-body p {
+        font-size: 0.7em;
+    }
+
+}
+@media(max-width: 1016px){
+    .card-body h3{
         font-size: 20px;
         margin-bottom: 10px;
 
     }
 
     .card-body p {
-        font-size: 0.8em;
+        font-size: 0.7em;
+    }
+
+}
+
+@media(max-width: 834px){
+    .card-body h3{
+        font-size: 15px;
+        margin-bottom: 10px;
+
+    }
+
+    .card-body p {
+       
     }
 
 }
@@ -63,7 +88,7 @@
 <div class="container-fluid">
     <div class="row">
     @foreach($medicines as $medicine)
-        <div class="col-xs-12 col-md-6 mt-3">
+        <div class="col-xs-12 col-md-4 mt-3">
             <div class="card border-primary linkbox">
             <a href="{{ route('show', ['id' => $medicine->id ]) }}"></a>
                 <div class="card-horizontal">
@@ -75,7 +100,7 @@
                     @endif
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title" style="color: #0b03a6;">{{ $medicine->name }}<span class="text-secondary" style="font-size: 0.8em;"> ({{ $medicine->quantity }})</span></h1>
+                        <h3 class="card-title" style="color: #0b03a6;">{{ $medicine->name }}</h3>
                         <p class="badge p10 m-0" style="background-color:#02c2f8; color:white;">
                         
                         {{ $medicine->timing }}
@@ -88,7 +113,7 @@
                         @endif
                         )
                         
-                        </p>
+                        </p><span class="text-secondary">　({{ $medicine->quantity }})</span>
                     </div>
                 </div>
                 <div class="card-footer">
