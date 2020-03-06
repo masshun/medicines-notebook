@@ -8,7 +8,7 @@
 </ul>
 
 <h4>技術一覧</h4>
-<ul>
+<ul style="display: inline;">
 <li>laradock</li>
 <li>HTML</li>
 <li>CSS</li>
