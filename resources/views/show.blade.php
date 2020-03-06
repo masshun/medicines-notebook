@@ -14,6 +14,7 @@
         .card-btn{
             display: inline;
         }
+
         h3{
             padding-top: 20px;
         }
@@ -39,6 +40,7 @@
         .card-btn a{
             width: 80%;
         }
+
         h3{
             font-size: 1.0em;
             padding-top: 5px;
@@ -59,7 +61,7 @@
 <div class="col-12"> 
     <div class="card">
         <div class="card-header">
-            <h4 class="text-center" style="color: #0b03a6;">おくすりの詳細</h4>
+            <h4 class="text-center mauto" style="color: #0b03a6;">おくすりの詳細</h4>
         </div>
         <div class="card-body">
             <section class="medicine-main">
