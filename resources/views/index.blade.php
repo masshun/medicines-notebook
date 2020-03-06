@@ -31,51 +31,42 @@
 
 }
 .card-body {
-    padding-bottom: 10px;
+    position: relative;
+    
 }
 
 .card-body p {
-    font-size: 0.6em;
+    
+    position: absolute;
+    top: 55%;
+    padding-top: 1%;
 }
 
 .card-body h3{
-   
+   position: absolute;
+   top: 30%;
 }
 
-@media(max-width: 1376px){
+@media(max-width: 1300px){
     .card-body h3{
-        font-size: 25px;
-        margin-bottom: 10px;
+        font-size: 1.3em;
 
     }
 
     .card-body p {
-        font-size: 0.7em;
-    }
-
-}
-@media(max-width: 1016px){
-    .card-body h3{
-        font-size: 20px;
-        margin-bottom: 10px;
-
-    }
-
-    .card-body p {
-        font-size: 0.7em;
+       font-size: 0.8em;
     }
 
 }
 
-@media(max-width: 834px){
+@media(max-width: 767px){
     .card-body h3{
-        font-size: 15px;
-        margin-bottom: 10px;
+        font-size: 1.3em;
 
     }
 
     .card-body p {
-       
+       font-size: 0.7em;
     }
 
 }
@@ -88,7 +79,7 @@
 <div class="container-fluid">
     <div class="row">
     @foreach($medicines as $medicine)
-        <div class="col-xs-12 col-md-4 mt-3">
+        <div class="col-xs-12 col-md-6 col-lg-4 mt-3">
             <div class="card border-primary linkbox">
             <a href="{{ route('show', ['id' => $medicine->id ]) }}"></a>
                 <div class="card-horizontal">
@@ -101,8 +92,8 @@
                     </div>
                     <div class="card-body">
                         <h3 class="card-title" style="color: #0b03a6;">{{ $medicine->name }}</h3>
-                        <p class="badge p10 m-0" style="background-color:#02c2f8; color:white;">
-                        
+                        <p>
+                        <i class="far fa-clock"></i>
                         {{ $medicine->timing }}
                         
                         (
@@ -113,7 +104,7 @@
                         @endif
                         )
                         
-                        </p><span class="text-secondary">　({{ $medicine->quantity }})</span>
+                        <span class="ml10"><i class="fas fa-pills"></i>({{ $medicine->quantity }})</span></p>
                     </div>
                 </div>
                 <div class="card-footer">

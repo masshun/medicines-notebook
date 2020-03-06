@@ -16,6 +16,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -45,13 +46,15 @@
                         <form method="GET" action="{{ route('index') }}">
                             @csrf               
                             <input type="text" name="keyword" value="{{ old('keyword') }}" class="rounded-lg border-info">
-                            <input type="submit" value="検索" class="rounded-lg border-info">
+                            <!--<input type="submit" value="&#xf002" class="rounded-lg border-info fas">-->
+                            <button type="submit" class="rounded-lg border-info"><i class="fas fa-search" style="padding-right:1px;"></i>検索</button>
                         </form>
                     </ul>
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
+                        <!
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">ホーム画面（仮）</a>
                         </li>
