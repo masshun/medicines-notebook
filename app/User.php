@@ -2,12 +2,13 @@
 
 namespace App;
 
-use App\Notifications\ResetPasswordNotificationJp;
+use App\Notifications\VerifyEmailJP;
+use App\Notifications\ResetPasswordJP as ResetPasswordNotificationJP;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -37,9 +38,16 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+//オーバーライド
+    public function sendEmailVerificationNotification()
+    {
+        // $this->notify(new VerifyEmail);
+        $this->notify(new VerifyEmailJP);
+    }
 
-    // sendPasswordResetNotification()をOverride
-    public function sendPasswordResetNotification($token){
-        $this->notify(new ResetPasswordNotificationJp($token));
+    public function sendPasswordResetNotification($token)
+    {
+        // $this->notify(new ResetPasswordNotification($token));
+        $this->notify(new ResetPasswordNotificationJP($token));
     }
 }
