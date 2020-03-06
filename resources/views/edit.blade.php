@@ -16,7 +16,7 @@
         @csrf
         @method('PATCH')
         <div class="card">
-        <div class="card-header"><h4 class="mauto" style="text-align:center;">お薬登録ページ</h4></div>
+        <div class="card-header"><h4 class="mauto" style="text-align:center;">お薬更新ページ</h4></div>
             <div class="card-body">
               <div class="form-group">
                 <label>お薬の名前<span style="color:#F00;">　※必須項目</span></label>

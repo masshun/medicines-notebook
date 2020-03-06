@@ -4,52 +4,31 @@
 # DEMO
 
 
-# Features
+# 特徴
 
-"hoge"のセールスポイントや差別化などを説明する
+①服用するお薬を管理するアプリ　②CRUD機能　③投稿されたお薬の画像を320×320にリサイズする機能<br />
+④更新（UPDATE）時oldcheckboxおよびoldradioを引き継ぐ機能　⑤card全体にリンクを貼ることによるUIの工夫　⑥論理削除機能
 
-# Requirement
+# 動機
+普段利用する紙媒体のお薬手帳を頻繁に紛失するので、アプリにしていつでも簡単に医師や薬剤師とお薬の相談ができるようにしたいと考えたためです。
 
-"hoge"を動かすのに必要なライブラリなどを列挙する
+# 使用した技術
+*Laradock
+*HTML
+*CSS
+*jQuery
+*PHP
+*Laravel
+*Bootstrap
 
-* huga 3.5.2
-* hogehuga 1.0.2
+# 利用
 
-# Installation
+git clone https://github.com/masshun/medicines-notebook.git
 
-Requirementで列挙したライブラリなどのインストール方法を説明する
+# 注意点
+2020.3.6現在　開発環境のままです。
 
-```bash
-pip install huga_package
-```
+# 作成者
 
-# Usage
+* 松下俊
 
-DEMOの実行方法など、"hoge"の基本的な使い方を説明する
-
-```bash
-git clone https://github.com/hoge/~
-cd examples
-python demo.py
-```
-
-# Note
-
-注意点などがあれば書く
-
-# Author
-
-作成情報を列挙する
-
-* 作成者
-* 所属
-* E-mail
-
-# License
-ライセンスを明示する
-
-"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
-
-社内向けなら社外秘であることを明示してる
-
-"hoge" is Confidential.
