@@ -11,21 +11,9 @@
     height:100%;
 }
 
-.linkbox a:hover{/* マウスオーバー時に色変更*/
-    opacity: 0.1;
-    background-color: #85e6ff;
-    box-shadow:8px 8px 9px rgba(0,0,0,0.5);
-}
-
-.linkbox {
-    position: relative;
-}
-.linkbox a {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height:100%;
-    width: 100%;
+.card-link:hover{/* マウスオーバー時に色変更*/
+    box-shadow:3px 3px 3px rgba(0,0,0,0.5);
+    text-decoration: none;
 }
 .card-blade-img{
 
@@ -80,8 +68,8 @@
     <div class="row">
     @foreach($medicines as $medicine)
         <div class="col-xs-12 col-md-6 col-lg-4 mt-3">
-            <div class="card border-primary linkbox">
-            <a href="{{ route('show', ['id' => $medicine->id ]) }}"></a>
+            <a class="card border-primary card-link" href="{{ route('show', ['id' => $medicine->id ]) }}">
+            
                 <div class="card-horizontal">
                     <div class="img-square-wrapper">
                     @if($medicine->image)
@@ -110,7 +98,7 @@
                 <div class="card-footer">
                     <small class="text-muted">特記事項：{{ $medicine->body }}</small>
                 </div>
-            </div>
+            </a>
         </div>
     @endforeach
     </div>
