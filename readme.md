@@ -9,7 +9,7 @@
 
 <h4>技術一覧</h4>
 <ul style="display: inline;">
-<li>laradock</li>
+<li　style="display: inline;">laradock</li>
 <li>HTML</li>
 <li>CSS</li>
 <li>Bootstrap</li>
