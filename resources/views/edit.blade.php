@@ -34,7 +34,7 @@
               </div>
 
               <div class="form-group">
-                <label>処方された病院名</label>
+                <label>処方された病院</label>
                 <input type='text' class="form-control" name='hospital' value="{{ old('hospital', $medicine->hospital) }}">
               </div>
 

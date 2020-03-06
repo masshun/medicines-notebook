@@ -85,6 +85,9 @@
                 <h3 class="border-top text-secondary">1回あたり服用する量</h3>
                 <h2 class="" style="color: #0b03a6;">{{ $medicine->quantity }}</h2>
 
+                <h3 class="border-top text-secondary">処方された病院</h3>
+                <h2 class="" style="color: #0b03a6;">{{ $medicine->hospital }}</h2>
+
                 <h3 class="border-top text-secondary">特記事項</h3>
                 @if($medicine->body)
                 <h2 class="pb20" style="color: #0b03a6;">{{ $medicine->body }}</h2>
