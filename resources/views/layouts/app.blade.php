@@ -54,10 +54,10 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
-                        <!
+                        <!--
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('home') }}">ホーム画面（仮）</a>
-                        </li>
+                        </li>-->
                         @guest
                             <li class="nav-item">
                                 <a class="nav-link" href="{{ route('login') }}">ログイン</a>

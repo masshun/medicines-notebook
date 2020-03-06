@@ -1,19 +1,55 @@
-<h3>概要</h3>
-<p>服用するお薬を管理するアプリケーション※現在は開発環境段階でコードを保管するにとどめています。</p>
+# アプリ名
+おくすり手帳アプリ
 
-<h4>機能一覧</h4>
-<ul style="list-style: none;">
-<li>CRUD機能（お薬の登録・一覧/詳細・更新・論理削除）</li>
-<li>認証機能</li>
-</ul>
+# DEMO
 
-<h4>技術一覧</h4>
-<ul>
-<li>laradock</li>
-<li>HTML</li>
-<li>CSS</li>
-<li>Bootstrap</li>
-<li>php</li>
-<li>Laravel</li>
-<li>jQuery</li>
-</ul>
+
+# Features
+
+"hoge"のセールスポイントや差別化などを説明する
+
+# Requirement
+
+"hoge"を動かすのに必要なライブラリなどを列挙する
+
+* huga 3.5.2
+* hogehuga 1.0.2
+
+# Installation
+
+Requirementで列挙したライブラリなどのインストール方法を説明する
+
+```bash
+pip install huga_package
+```
+
+# Usage
+
+DEMOの実行方法など、"hoge"の基本的な使い方を説明する
+
+```bash
+git clone https://github.com/hoge/~
+cd examples
+python demo.py
+```
+
+# Note
+
+注意点などがあれば書く
+
+# Author
+
+作成情報を列挙する
+
+* 作成者
+* 所属
+* E-mail
+
+# License
+ライセンスを明示する
+
+"hoge" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+
+社内向けなら社外秘であることを明示してる
+
+"hoge" is Confidential.
