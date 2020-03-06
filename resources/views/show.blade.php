@@ -2,13 +2,20 @@
 
 @section('css')
     <link href="{{ asset('css/show.css') }}" rel="stylesheet">
+    <style>
+    aside{
+       
+    }
+    </style>
 @endsection
 
 @section('content')
 <div class="container">
+<div class="row">
+<div class="col-12"> 
     <div class="card">
         <div class="card-header">
-            <h2 class="mauto text-center" style="color: #0b03a6;">おくすりの詳細</h2>
+            <h2 class="text-center" style="color: #0b03a6;">おくすりの詳細</h2>
         </div>
         <div class="card-body d-flex">
             <section class="medicine-main">
@@ -18,11 +25,8 @@
                 </div>
                 
                 <h3 class="border-top pt20 text-secondary">服用するタイミング</h3>
-                <ul class="list-group list-group-flush" style="flex-direction:row;"> 
-                    
-                        <li style="list-style:none;" class="mb20">
-                            <span class="badge p10" style="font-size:1.4rem; background-color:#02c2f8; color:white;">
-                            {{ $medicine->timing }}                        
+                <h2 class="mb20" style="color: #0b03a6;">
+                        {{ $medicine->timing }}                        
                         (
                         @if($medicine->timezone != '')
                         {{ $medicine->timezone }}
@@ -30,11 +34,7 @@
                         指定なし
                         @endif
                         )
-                            </span>                                
-                        </li>                           
-                     
-                </ul>
-                            
+                </h2>                            
                 <h3 class="border-top pt20 text-secondary">処方期間</h3> 
                 <h2 class="mb20" style="color: #0b03a6;">{{ $medicine->term }}</h2>
 
@@ -50,9 +50,9 @@
             </section>
             <aside>
             @if(!empty($medicine->image))
-            <img class="medicine-image" src="/thumbnail/{{ $medicine->image }}">
+            <img style="width: 100%;" class="medicine-image" src="/thumbnail/{{ $medicine->image }}">
             @else
-            <img class="medicine-image" src="{{ asset('images/meme1.png') }}">
+            <img style="width: 100%;" class="medicine-image" src="{{ asset('images/meme1.png') }}">
             @endif
             </aside>
         </div>
@@ -62,5 +62,7 @@
         <a href="{{ route('destroy', ['id' => $medicine->id ]) }}" class="btn btn-danger btn-back mb20" style="margin:5px;">削除</a>
         </div>
     </div> 
+    </div>
+    </div>
 </div>
 @endsection

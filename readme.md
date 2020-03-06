@@ -13,13 +13,13 @@
 普段利用する紙媒体のお薬手帳を頻繁に紛失するので、アプリにしていつでも簡単に医師や薬剤師とお薬の相談ができるようにしたいと考えたためです。
 
 # 使用した技術
-*Laradock
-*HTML
-*CSS
-*jQuery
-*PHP
-*Laravel
-*Bootstrap
+①Laradock
+②HTML
+③CSS
+④jQuery
+⑤PHP
+⑥Laravel
+⑦Bootstrap
 
 # 利用
 

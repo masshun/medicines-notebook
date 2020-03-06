@@ -64,7 +64,7 @@
 
               <div class="form-group">
               <label>特記事項</label>
-                <textarea class='description form-control' name='body' value="{{ old('hospital', $medicine->hospital) }}"></textarea>
+                <textarea class='description form-control' name='body'>{{ old('body', $medicine->body) }}</textarea>
               </div>
 
               <div class="form-group">
