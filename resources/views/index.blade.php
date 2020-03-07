@@ -29,34 +29,39 @@
     top: 55%;
     padding-top: 1%;
 }
-
+ 
 .card-body h3{
    position: absolute;
    top: 30%;
+   width: 80%;
+   overflow:hidden;
+   text-overflow: ellipsis;
+   white-space:nowrap; 
+}
+.card-footer{
+   overflow:hidden;
+   text-overflow: ellipsis;
+   white-space:nowrap; 
 }
 
 @media(max-width: 1300px){
     .card-body h3{
         font-size: 1.3em;
-
     }
 
     .card-body p {
        font-size: 0.8em;
     }
-
 }
 
 @media(max-width: 767px){
     .card-body h3{
         font-size: 1.3em;
-
     }
 
     .card-body p {
        font-size: 0.7em;
     }
-
 }
 
 </style>
