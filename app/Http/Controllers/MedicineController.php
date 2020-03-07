@@ -29,8 +29,9 @@ class MedicineController extends Controller
     public function store(ValidateTestRequest $request)
     {
         $post = $request->all();
-    
+
     if($request->hasFile('image')){
+
         $image = $request->file('image');
         $image_name = time() . '.' . $image->
             getClientOriginalExtension();
@@ -49,6 +50,7 @@ class MedicineController extends Controller
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
         'image' => $image_name,'timing' => $post['timing'],
+        'day' => $post['date'],
         ];
 
     }else{
@@ -56,7 +58,7 @@ class MedicineController extends Controller
         'user_id' => \Auth::id(), 'name' => $post['name'], 
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
-        'timing' => $post['timing'],
+        'timing' => $post['timing'],'day' => $post['date'],
         ];
     }
 
@@ -111,13 +113,14 @@ class MedicineController extends Controller
             'quantity' => $post['quantity'], 'term' => $post['term'],
             'hospital' => $post['hospital'], 'body' => $post['body'],
             'image' => $image_name, 'timing' => $post['timing'],
+            'day' => $post['date'],
             ];
         }else{
         $data = [
         'user_id' => \Auth::id(), 'name' => $post['name'], 
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
-        'timing' => $post['timing'],
+        'timing' => $post['timing'],'day' => $post['date'],
         ];
         }
         if(array_key_exists('timezone', $post)){

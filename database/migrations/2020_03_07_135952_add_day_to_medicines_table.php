@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddMedicinesTable extends Migration
+class AddDayToMedicinesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -14,6 +14,7 @@ class AddMedicinesTable extends Migration
     public function up()
     {
         Schema::table('medicines', function (Blueprint $table) {
+            $table->date('day')->nullable();
             $table->string('timing')->nullable()->comment('食前・食後・適宜');
         });
     }

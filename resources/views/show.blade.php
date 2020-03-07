@@ -80,7 +80,11 @@
                         指定なし
                         @endif
                         )
-                </h2>                            
+                </h2>
+                <h3 class="border-top text-secondary">服用開始日</h3>
+                <h2 class="" style="color: #0b03a6;">{{ $medicine->day }}</h2>
+
+
                 <h3 class="border-top text-secondary">処方期間</h3> 
                 <h2 class="" style="color: #0b03a6;">{{ $medicine->term }}</h2>
 

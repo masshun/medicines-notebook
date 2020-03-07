@@ -39,6 +39,11 @@
               </div>
 
               <div class="form-group">
+                <label>服用開始日</label>
+                <input type='date' class="form-control" name='day' style='width:50%;' value='{{ old('day', $medicine->day) }}'>
+              </div>
+
+              <div class="form-group">
                 <label>服用するタイミング</label>
                 <div  style="font-size:1.1em;">
                   <label class="ml20"><input type='radio' name='timing' value='食前' {{ old('timing', $medicine->timing) == '食前' ? 'checked' : ''}}><span class="pl10">食前</span></label>
