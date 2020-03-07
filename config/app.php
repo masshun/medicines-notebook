@@ -176,7 +176,6 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
         App\Providers\MedicineServiceProvider::class,
-
         // Add Intervention Image.
         Intervention\Image\ImageServiceProvider::class,
 

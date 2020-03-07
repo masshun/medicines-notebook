@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 use App\Medicine;
 use App\User;
+use App\Calendar;
 
 
 class MedicineController extends Controller
@@ -146,4 +147,12 @@ class MedicineController extends Controller
         return redirect('/')->with('flash_message', 'お薬手帳から削除しました');
     } 
 
+    public function getCalendar(Request $request)
+    {
+       $medicines = Medicine::all()->where('status', 1);
+       $cal = new Calendar();
+       $tag = $cal->showCalendarTag($request->month,$request->year);
+
+       return view('calendar', ['medicines' => $medicines, 'cal_tag' => $tag]);
+    }
 }

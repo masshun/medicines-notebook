@@ -25,4 +25,5 @@ Route::group(['middleware' =>'auth'], function ()
     Route::get('/edit/{id}', 'MedicineController@edit')->name('edit');
     Route::get('/destroy/{id}', 'MedicineController@destroy')->name('destroy');
     Route::patch('/edit/update/{id}', 'MedicineController@update')->name('update');
+    Route::get('/calendar', 'MedicineController@getCalendar')->name('calendar');
 });
