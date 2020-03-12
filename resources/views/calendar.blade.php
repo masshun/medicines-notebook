@@ -1,10 +1,12 @@
 @extends('layouts.app')
 @section('css')
+
 @endsection
 
 @section('content')
 @auth
-{!!$cal_tag!!}
+<div id='calendar-view'></div>
+
 @endauth
 @endsection
 

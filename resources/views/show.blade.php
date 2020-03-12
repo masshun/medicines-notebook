@@ -67,11 +67,11 @@
             <section class="medicine-main">
                 <div>
                 <h3 class="text-secondary">お薬の名前</h3>
-                <h2 class="" style="color: #0b03a6;">{{ $medicine->name }}</h2>
+                <h2 style="color: #0b03a6;">{{ $medicine->name }}</h2>
                 </div>
                 
                 <h3 class="border-top text-secondary">服用するタイミング</h3>
-                <h2 class="" style="color: #0b03a6;">
+                <h2 style="color: #0b03a6;">
                         {{ $medicine->timing }}                        
                         (
                         @if($medicine->timezone != '')
@@ -81,18 +81,35 @@
                         @endif
                         )
                 </h2>
-                <h3 class="border-top text-secondary">服用開始日</h3>
-                <h2 class="" style="color: #0b03a6;">{{ $medicine->day }}</h2>
 
+                
+                <h3 class="border-top text-secondary">服用開始日</h3>
+                @if(!empty($medicine->day))
+                <h2 style="color: #0b03a6;">{{ $medicine->day }}</h2>
+                @else
+                指定なし
+                @endif
 
                 <h3 class="border-top text-secondary">処方期間</h3> 
-                <h2 class="" style="color: #0b03a6;">{{ $medicine->term }}</h2>
+                @if(!empty($medicine->term))
+                <h2 style="color: #0b03a6;">{{ $medicine->term }}</h2>
+                @else
+                <h2 style="color: #0b03a6;">指定なし</h2>
+                @endif
 
                 <h3 class="border-top text-secondary">1回あたり服用する量</h3>
-                <h2 class="" style="color: #0b03a6;">{{ $medicine->quantity }}</h2>
+                @if(!empty($medicine->quantity))
+                <h2 style="color: #0b03a6;">{{ $medicine->quantity }}</h2>
+                @else
+                <h2 style="color: #0b03a6;">指定なし</h2>
+                @endif
 
                 <h3 class="border-top text-secondary">処方された病院</h3>
-                <h2 class="" style="color: #0b03a6;">{{ $medicine->hospital }}</h2>
+                @if(!empty($medicine->hospital))
+                <h2 style="color: #0b03a6;">{{ $medicine->hospital }}</h2>
+                @else
+                <h2 style="color: #0b03a6;">指定なし</h2>
+                @endif
 
                 <h3 class="border-top text-secondary">特記事項</h3>
                 @if($medicine->body)

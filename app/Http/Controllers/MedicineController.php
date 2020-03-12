@@ -150,9 +150,7 @@ class MedicineController extends Controller
     public function getCalendar(Request $request)
     {
        $medicines = Medicine::all()->where('status', 1);
-       $cal = new Calendar();
-       $tag = $cal->showCalendarTag($request->month,$request->year);
-
-       return view('calendar', ['medicines' => $medicines, 'cal_tag' => $tag]);
+       
+       return view(['medicines' => $medicines]);
     }
 }
