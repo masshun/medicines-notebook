@@ -51,7 +51,7 @@ class MedicineController extends Controller
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
         'image' => $image_name,'timing' => $post['timing'],
-        'day' => $post['date'],
+        'day' => $post['day'],
         ];
 
     }else{
@@ -59,7 +59,7 @@ class MedicineController extends Controller
         'user_id' => \Auth::id(), 'name' => $post['name'], 
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
-        'timing' => $post['timing'],'day' => $post['date'],
+        'timing' => $post['timing'],'day' => $post['day'],
         ];
     }
 
@@ -114,14 +114,14 @@ class MedicineController extends Controller
             'quantity' => $post['quantity'], 'term' => $post['term'],
             'hospital' => $post['hospital'], 'body' => $post['body'],
             'image' => $image_name, 'timing' => $post['timing'],
-            'day' => $post['date'],
+            'day' => $post['day'],
             ];
         }else{
         $data = [
         'user_id' => \Auth::id(), 'name' => $post['name'], 
         'quantity' => $post['quantity'], 'term' => $post['term'],
         'hospital' => $post['hospital'], 'body' => $post['body'],
-        'timing' => $post['timing'],'day' => $post['date'],
+        'timing' => $post['timing'],'day' => $post['day'],
         ];
         }
         if(array_key_exists('timezone', $post)){
