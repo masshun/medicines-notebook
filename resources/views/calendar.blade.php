@@ -5,7 +5,7 @@
 
 @section('content')
 @auth
-<div id='calendar-view'></div>
+
 
 @endauth
 @endsection
