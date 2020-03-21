@@ -107,7 +107,7 @@
         </div>
     @endforeach
     </div>
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt20">
             {{ $medicines->appends(request()->input())->links() }}
     </div>
 </div>

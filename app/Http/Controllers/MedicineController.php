@@ -16,7 +16,7 @@ class MedicineController extends Controller
     public function index(Request $request)
     {
         $keyword = $request->keyword;
-        $medicines = Medicine::findName($keyword)->paginate(6);
+        $medicines = Medicine::findName($keyword)->paginate(9);
         $users = Auth::user();
 
         return view('index', ['medicines' => $medicines, 'users' => $users, 'keyword' => $keyword]);
